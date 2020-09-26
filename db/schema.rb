@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2020_09_25_233300) do
     t.string "details"
     t.string "race_raw"
     t.string "eyes"
+    t.string "image"
+    t.string "birthday"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

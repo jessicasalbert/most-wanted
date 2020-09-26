@@ -7,6 +7,8 @@ class CreateCases < ActiveRecord::Migration[6.0]
       t.string :details
       t.string :race_raw
       t.string :eyes
+      t.string :image
+      t.string :birthday
       t.timestamps
     end
   end

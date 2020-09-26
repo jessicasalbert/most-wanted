@@ -15,9 +15,18 @@ def seed
         data = Net::HTTP.get(URI(endpoint))
         data = JSON.parse(data)
         data['items'].each do |crime|
-            Case.create(title: crime['title'], description: crime['description'], race_raw: crime['race_raw'], eyes: crime['eyes'], hair_raw: crime['hair_raw'], details: crime['details'])
+            Case.create(title: crime['title'], description: crime['description'], race_raw: crime['race_raw'], eyes: crime['eyes'], hair_raw: crime['hair_raw'], details: crime['details'], birthday: crime['dates_of_birth_used'], image: crime['images'][0]['large'])
         end
         page += 1
+    end
+end
+
+def seed_sample
+    endpoint = 'https://api.fbi.gov/wanted/v1/list?page='
+    data = Net::HTTP.get(URI(endpoint))
+    data = JSON.parse(data)
+    data['items'].each do |crime|
+        Case.create(title: crime['title'], description: crime['description'], race_raw: crime['race_raw'], eyes: crime['eyes'], hair_raw: crime['hair_raw'], details: crime['details'], birthday: crime['dates_of_birth_used'], image: crime['images'][0]['large'])
     end
 end
 
