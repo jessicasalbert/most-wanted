@@ -1,0 +1,10 @@
+<h1><%=@city.display_name%></h1>
+<h2><%=@city.cases.count%> cases</h2>
+
+
+<h3>Cases:</h3>
+<ul>
+    <%@city.cases.each do |crime| %>
+        <li><%=link_to crime.title, case_path(crime)%></li>
+    <%end%>
+</ul>

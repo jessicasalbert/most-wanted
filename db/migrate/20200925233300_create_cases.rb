@@ -9,6 +9,7 @@ class CreateCases < ActiveRecord::Migration[6.0]
       t.string :eyes
       t.string :image
       t.string :birthday
+      t.integer :city_id
       t.timestamps
     end
   end
