@@ -12,7 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_09_26_174646) do
 
-  create_table "cases", force: :cascade do |t|
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "crimes", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.string "hair_raw"
@@ -22,12 +28,6 @@ ActiveRecord::Schema.define(version: 2020_09_26_174646) do
     t.string "image"
     t.string "birthday"
     t.integer "city_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "cities", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

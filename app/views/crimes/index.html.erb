@@ -1,0 +1,7 @@
+<h1>All crimes</h1>
+
+<ul>
+<% @crimes.each do |crime| %>
+    <li> <%=link_to crime.title, crime_path(crime) %></li>
+<%end%>
+</ul>

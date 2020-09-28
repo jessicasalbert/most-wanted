@@ -1,6 +1,6 @@
-class CreateCases < ActiveRecord::Migration[6.0]
+class CreateCrimes < ActiveRecord::Migration[6.0]
   def change
-    create_table :cases do |t|
+    create_table :crimes do |t|
       t.string :title
       t.string :description
       t.string :hair_raw

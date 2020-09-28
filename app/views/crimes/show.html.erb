@@ -1,0 +1,15 @@
+<h1><%=@crime.title%></h1>
+<h2>Date of Birth on file: <%=@crime.birthday%></h2>
+<p><%=@crime.description%></p>
+
+<%= image_tag @crime.image %>
+
+
+
+<h2>Victim details</h2>
+<p>Eye color: <%=@crime.eyes%> </p>
+<p>Hair color: <%=@crime.hair_raw%></p>
+<p>Race: <%=@crime.race_raw%></p>
+
+<h3>Crime Details:</h3>
+<%= @crime.details%>

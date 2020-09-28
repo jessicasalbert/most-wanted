@@ -17,7 +17,7 @@ def cases
     end
 end
 
-def seed
+def cities
     cities = []
     page = 1
     45.times do 
@@ -34,4 +34,15 @@ def seed
     puts cities.uniq
 end
 
-seed
+
+def example
+    url = "https://api.fbi.gov/wanted/v1/list"
+    data = Net::HTTP.get(URI(url))
+    data = JSON.parse(data)
+    data['items'][0].each do |key, value|
+        puts key, value, "\n"
+    end
+end
+
+
+example

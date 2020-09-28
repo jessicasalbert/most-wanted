@@ -4,7 +4,7 @@
 
 <h3>Cases:</h3>
 <ul>
-    <%@city.cases.each do |crime| %>
+    <%@city.crimes.each do |crime| %>
         <li><%=link_to crime.title, case_path(crime)%></li>
     <%end%>
 </ul>
