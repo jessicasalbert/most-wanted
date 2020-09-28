@@ -39,7 +39,7 @@ def example
     url = "https://api.fbi.gov/wanted/v1/list"
     data = Net::HTTP.get(URI(url))
     data = JSON.parse(data)
-    data['items'][0].each do |key, value|
+    data['items'][4].each do |key, value|
         puts key, value, "\n"
     end
 end

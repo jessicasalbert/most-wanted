@@ -1,5 +1,6 @@
 class City < ApplicationRecord
     has_many :crimes
+    has_many :users
 
     def display_name
         if self.name == "washingtondc"

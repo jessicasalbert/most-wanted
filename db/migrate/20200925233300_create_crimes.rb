@@ -7,7 +7,7 @@ class CreateCrimes < ActiveRecord::Migration[6.0]
       t.string :details
       t.string :race_raw
       t.string :eyes
-      t.string :image
+      t.string :image_large
       t.string :birthday
       t.integer :city_id
       t.timestamps
