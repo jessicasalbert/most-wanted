@@ -1,7 +1,11 @@
-class UpdatesController < ApplicationController
+class UsersController < ApplicationController
+    
+    def show
 
+    end
 
     def new
+
     end
 
     def create
@@ -11,9 +15,5 @@ class UpdatesController < ApplicationController
     end
 
     def update 
-    end
-
-    def delete
-
     end
 end

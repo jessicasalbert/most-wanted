@@ -8,6 +8,12 @@ class CrimesController < ApplicationController
         @crime = Crime.find(params[:id])
     end
 
+    def destroy
+        # @crime.destroy 
+        
+
+    end
+
     
 end
 
