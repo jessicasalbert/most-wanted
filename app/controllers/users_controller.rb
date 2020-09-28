@@ -12,11 +12,12 @@ class UsersController < ApplicationController
 
     def handle_login
         @user = User.find_by(username: params[:username])
-        if @user && @user.authenticate(params[:password])
+        #byebug
+        if @user && @user.authenticate(params[:password]) && params[:badge_id].to_i == @user.badge_id
             session[:user] = @user.id 
             redirect_to welcome_path
         else
-            flash[:message] = "Wrong Password"
+            flash[:message] = "Invalid credentials, please try again."
             redirect_to login_path 
         end
     end
