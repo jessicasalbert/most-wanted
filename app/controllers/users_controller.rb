@@ -1,19 +1,54 @@
 class UsersController < ApplicationController
+    skip_before_action :authorized, only: [:new, :create, :login, :handle_login]
+
+    def new
+        @user = User.new
+    end
     
-    def show
+    def login
 
     end
 
-    def new
-
+    def handle_login
+        @user = User.find_by(username: params[:username])
+        if @user && @user.authenticate(params[:password])
+            session[:user] = @user.id 
+            # redirect_to welcome_path
+        else
+            flash[:message] = "Wrong Password"
+            redirect_to login_path 
+        end
     end
 
     def create
+        @user = User.create(user_params)
+        if @user.valid?
+            session[:user] = @user.id
+            redirect_to welcome_path
+        else
+            redirect_to login_path
+        end
+
     end
 
     def edit
     end
 
     def update 
+    end
+
+    def logout
+        session[:user] = nil
+        redirect_to home_path
+    end
+
+    def welcome
+        
+    end
+
+    private
+
+    def user_params 
+        params.require(:user).permit(:name, :password, :username, :badge_id, :city_id, :password_confirmation)
     end
 end
