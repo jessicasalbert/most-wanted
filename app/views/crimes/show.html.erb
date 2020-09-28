@@ -1,4 +1,6 @@
 <h1><%=@crime.title%></h1>
+<h2><%=@crime.alias%></h2>
+<h2><%=@crime.warning_message%></h2>
 <h2>Date of Birth on file: <%=@crime.birthday%></h2>
 <p><%=@crime.description%></p>
 
@@ -6,10 +8,22 @@
 
 
 
-<h2>Victim details</h2>
+<h2>Details</h2>
+<p>Sex: <%=@crime.sex%> </p>
+<p>Scars and marks: <%=@crime.scars_and_marks%></p>
 <p>Eye color: <%=@crime.eyes%> </p>
 <p>Hair color: <%=@crime.hair_raw%></p>
 <p>Race: <%=@crime.race_raw%></p>
 
 <h3>Crime Details:</h3>
-<%= @crime.details%>
+<p><%= @crime.details%></p>
+
+<p><%= @crime.caution%></p>
+
+<p><%= @crime.remarks%> </p>
+
+<p>View on FBI's website: <%= @crime.url%></p>
+
+
+<h3>Reward: <%= @crime.reward%></h3>
+  

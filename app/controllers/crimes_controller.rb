@@ -1,4 +1,5 @@
 class CrimesController < ApplicationController
+    skip_before_action :authorized, only: [:new, :create, :index, :show]
 
     def index
         @crimes = Crime.all
