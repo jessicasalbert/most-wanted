@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
     def new
         @user = User.new
+        @cities = City.all
     end
     
     def login
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
             session[:user] = @user.id 
-            # redirect_to welcome_path
+            redirect_to welcome_path
         else
             flash[:message] = "Wrong Password"
             redirect_to login_path 
@@ -26,7 +27,8 @@ class UsersController < ApplicationController
             session[:user] = @user.id
             redirect_to welcome_path
         else
-            redirect_to login_path
+            flash[:messages] = @user.errors.full_messages 
+            redirect_to new_user_path
         end
 
     end

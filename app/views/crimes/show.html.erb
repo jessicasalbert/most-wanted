@@ -1,13 +1,12 @@
 <h1><%=@crime.title%></h1>
-<h2><%=@crime.alias%></h2>
+<h2>Aliases: <%=@crime.alias%></h2>
 <h2><%=@crime.warning_message%></h2>
-<h2>Date of Birth on file: <%=@crime.birthday%></h2>
+<h2>Date of Birth on file: <%=@crime.birthday ||= "N/A"%></h2>
 <p><%=@crime.description%></p>
 
 <%= image_tag @crime.image %>
 
-
-
+<hr>
 <h2>Details</h2>
 <p>Sex: <%=@crime.sex%> </p>
 <p>Scars and marks: <%=@crime.scars_and_marks%></p>
@@ -15,7 +14,7 @@
 <p>Hair color: <%=@crime.hair_raw%></p>
 <p>Race: <%=@crime.race_raw%></p>
 
-<h3>Crime Details:</h3>
+<hr>
 <p><%= @crime.details%></p>
 
 <p><%= @crime.caution%></p>
