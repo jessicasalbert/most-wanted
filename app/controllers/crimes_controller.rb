@@ -30,6 +30,7 @@ class CrimesController < ApplicationController
     end
 
     def update
+        @crime = Crime.find(params[:id])
         @crime.update(crime_params)
         redirect_to crime_path(@crime)
     end

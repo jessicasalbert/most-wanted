@@ -66,6 +66,8 @@ def seed_cities
             display_name = "San Antonio"
         elsif city == "littlerock"
             display_name = "Little Rock"
+        elsif city == "newyork"
+            display_name = "New York"
         else
             display_name = city.capitalize
         end

@@ -19,8 +19,10 @@ class UpdatesController < ApplicationController
     def update 
     end
 
-    def delete
-
+    def destroy
+        @update = Update.find(params[:id])
+        @update.destroy 
+        redirect_back(fallback_location: home_path)
     end
 
     private 

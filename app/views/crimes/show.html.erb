@@ -22,10 +22,11 @@
 
 <p><%= @crime.remarks%> </p>
 
-<p>View on FBI's website: <%= link_to @crime.url%></p>
+<p>View on FBI's website: <%= link_to @crime.url, @crime.url%></p>
 
 
-<h3>Reward: <%= @crime.reward%></h3>
+
+<h3>Reward: $<%= @crime.reward%></h3>
   
 
 <div>
@@ -35,7 +36,9 @@
     <% @crime.updates.each do |update| %>
             <tr>
                 <td> <%= update.content %></td>
-                <td><%= update.created_at.strftime('%m-%d-%Y') %></td>
+                <td> <%= update.created_at.strftime('%m-%d-%Y') %></td>
+                <td> <%#= UPDATE UPDATE %> </td>
+                <td> <%= button_to "Delete", update_path(update), method: :delete %></td>
             </tr>
     <% end %>
     </table>
@@ -49,6 +52,8 @@
             <br>
             <%=f.submit%>      
         <% end %>
+
+        <%= link_to "Edit crime details", edit_crime_path%>
     <% end %>
 
     <%#= form_tag post_update_path do %>
