@@ -19,6 +19,6 @@
     <%= f.label :badge_id %>
     <%= f.text_field :badge_id%>
     <%= f.label :city %>
-    <%= f.collection_select :city_id, @cities, :id, :name%>
+    <%= f.collection_select :city_id, @cities, :id, :display_name%>
     <%= f.submit "Register" %>
 <% end %>
