@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :users 
   resources :updates
 
-  root 'application#home', as: 'home'
+  get 'application/home'
+  root to: 'application#home', as: 'home'
   get '/welcome', to: 'users#welcome', as: 'welcome'
   get '/login', to: 'users#login', as: "login"
   post '/login', to: 'users#handle_login'

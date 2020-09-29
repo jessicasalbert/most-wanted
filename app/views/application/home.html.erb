@@ -1,4 +1,4 @@
-<h1>Hello</h1>
+<h1>Hello <%= @current_user.name if logged_in? %></h1>
 
 Home page content:
 -Random or recently added crimes
