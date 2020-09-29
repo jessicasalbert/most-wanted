@@ -9,7 +9,7 @@ class UpdatesController < ApplicationController
     end
 
     def create
-        @update = Update.create(update_params)
+        @update = @current_user.updates.create(update_params)
         redirect_back(fallback_location: home_path)
     end
 

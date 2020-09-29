@@ -27,6 +27,17 @@
 
 
 <h3>Reward: $<%= @crime.reward%></h3>
+
+<h3>Anonymous tips reported</h3>
+<table> 
+    <% @crime.anon_tips.each do |tip| %>
+            <tr>
+                <td> <%= tip.tip %></td>
+                <td> <%= tip.created_at.strftime('%m-%d-%Y') %></td>
+                <td> <%#= button_to "Delete", update_path(update), method: :delete %></td>
+            </tr>
+    <% end %>
+</table>
   
 
 <div>
@@ -37,10 +48,9 @@
             <tr>
                 <td> <%= update.content %></td>
                 <td> <%= update.created_at.strftime('%m-%d-%Y') %></td>
-                <td> <%#= UPDATE UPDATE %> </td>
                 <td> <%= button_to "Delete", update_path(update), method: :delete %></td>
             </tr>
-    <% end %>
+        <% end %>
     </table>
 
     <% if @current_user.city == @crime.city %>
@@ -50,11 +60,21 @@
             <%=f.hidden_field :user_id, :value => @current_user.id %>
             <%=f.text_area :content %>
             <br>
-            <%=f.submit%>      
-        <% end %>
-
-        <%= link_to "Edit crime details", edit_crime_path%>
+            <%=f.submit%>   
+           
     <% end %>
+     <%end%>
+
+    <%= link_to "Edit crime details", edit_crime_path%>
+<% else %>
+    <h4>Post an anonymous tip for this case</h4>
+    <%= form_for AnonTip.new do |f| %>
+        <%=f.hidden_field :crime_id, :value => @crime.id %>
+        <%=f.text_area :tip %>
+        <br>
+        <%=f.submit%>   
+       
+<% end %>
 
     <%#= form_tag post_update_path do %>
     <%#= text_area_tag :content%>

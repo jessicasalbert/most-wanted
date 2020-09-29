@@ -3,7 +3,7 @@ class CitiesController < ApplicationController
 
 
     def index
-        @cities = City.all.ordered
+        @cities = City.all.ordered_by_crimes
     end
 
     def show

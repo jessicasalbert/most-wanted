@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :cities
   resources :users 
   resources :updates
-
+  resources :anon_tips
+  
   get 'application/home'
   root to: 'application#home', as: 'home'
   get '/welcome', to: 'users#welcome', as: 'welcome'
