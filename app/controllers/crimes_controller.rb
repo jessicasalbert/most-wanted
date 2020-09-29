@@ -1,5 +1,5 @@
 class CrimesController < ApplicationController
-    skip_before_action :authorized, only: [:new, :create, :index, :show]
+    skip_before_action :authorized, only: [:index, :show]
 
     def index
         @crimes = Crime.all
@@ -9,10 +9,31 @@ class CrimesController < ApplicationController
         @crime = Crime.find(params[:id])
     end
 
+    def new 
+        @crime = Crime.new
+    end
+
+    def create
+        @crime = Crime.create(crime_params)
+
+        if @crime.valid?
+            redirect_to crime_path(@crime)
+        else
+            flash[:message] = @crime.errors.full_messages
+            redirect_to new_crime_path
+        end
+    end
+
     def destroy
         # @crime.destroy 
         
 
+    end
+
+    private 
+
+    def crime_params 
+        params.require(:crime).permit!
     end
 
     

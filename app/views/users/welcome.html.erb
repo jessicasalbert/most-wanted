@@ -3,7 +3,7 @@
 
 <%=link_to "Crimes updates for #{@current_user.city.display_name}", updates_path%>
 <br>
-<%=link_to "Your Cases", city_path(@current_user.city)%>
+<%=link_to "Your crimes", city_path(@current_user.city)%>
 
 
 <%# five most recent updates, tip alerts, urgent things%>
