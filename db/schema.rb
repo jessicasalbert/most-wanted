@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_192822) do
+ActiveRecord::Schema.define(version: 2020_09_29_205739) do
+
+  create_table "anon_tips", force: :cascade do |t|
+    t.integer "crime_id"
+    t.string "tip"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
