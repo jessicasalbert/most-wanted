@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get '/login', to: 'users#login', as: "login"
   post '/login', to: 'users#handle_login'
   delete '/logout', to: 'users#logout'
+  post '/updates/:id', to: 'updates#create', as: 'post_update'
 end

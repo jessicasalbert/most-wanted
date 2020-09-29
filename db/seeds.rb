@@ -13,7 +13,7 @@ def seed_crimes
         data['items'].each do |crime|
             if crime['field_offices']
                 city = City.find_by(name: crime['field_offices'][0])
-                Crime.create(title: crime['title'], description: crime['description'], race_raw: crime['race_raw'], eyes: crime['eyes'], hair_raw: crime['hair_raw'], details: crime['details'], birthday: crime['dates_of_birth_used'], image: crime['images'][0]['large'], image_small: crime['images'][0]['thumb'], city: city, warning_message: crime['warning_message'], scars_and_marks: crime['scars_and_marks'], alias: crime['aliases'], caution: crime['caution'], sex: crime['sex'], url: crime['url'], remarks: crime['remarks'], reward: crime['reward'])
+                Crime.create(title: crime['title'], description: crime['description'], race_raw: crime['race_raw'], eyes: crime['eyes'], hair_raw: crime['hair_raw'], details: crime['details'], birthday: crime['dates_of_birth_used'], image: crime['images'][0]['large'], image_small: crime['images'][0]['thumb'], city: city, warning_message: crime['warning_message'], scars_and_marks: crime['scars_and_marks'], alias: crime['aliases'], caution: crime['caution'], sex: crime['sex'], url: crime['url'], remarks: crime['remarks'], reward: rand(50000...200000).round(-5))
             end
         end
         page += 1

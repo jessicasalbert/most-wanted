@@ -7,6 +7,7 @@ class CrimesController < ApplicationController
 
     def show
         @crime = Crime.find(params[:id])
+        @update = Update.new
     end
 
     def new 
@@ -24,11 +25,20 @@ class CrimesController < ApplicationController
         end
     end
 
+    def edit 
+        @crime = Crime.find(params[:id])
+    end
+
+    def update
+        @crime.update(crime_params)
+        redirect_to crime_path(@crime)
+    end
+
     def destroy
         # @crime.destroy 
-        
-
     end
+
+
 
     private 
 

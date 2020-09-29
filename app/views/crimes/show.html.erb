@@ -1,3 +1,4 @@
+
 <h1><%=@crime.title%></h1>
 <h2>Aliases: <%=@crime.alias%></h2>
 <h2><%=@crime.warning_message%></h2>
@@ -21,8 +22,42 @@
 
 <p><%= @crime.remarks%> </p>
 
-<p>View on FBI's website: <%= @crime.url%></p>
+<p>View on FBI's website: <%= link_to @crime.url%></p>
 
 
 <h3>Reward: <%= @crime.reward%></h3>
   
+
+<div>
+<% if logged_in? %>
+    <h4>Recent updates</h4>
+    <table> 
+    <% @crime.updates.each do |update| %>
+            <tr>
+                <td> <%= update.content %></td>
+                <td><%= update.created_at.strftime('%m-%d-%Y') %></td>
+            </tr>
+    <% end %>
+    </table>
+
+    <% if @current_user.city == @crime.city %>
+        <h4>Add a new update for this case</h4>
+        <%= form_for Update.new do |f| %>
+            <%=f.hidden_field :crime_id, :value => @crime.id %>
+            <%=f.hidden_field :user_id, :value => @current_user.id %>
+            <%=f.text_area :content %>
+            <br>
+            <%=f.submit%>      
+        <% end %>
+    <% end %>
+
+    <%#= form_tag post_update_path do %>
+    <%#= text_area_tag :content%>
+    <%# hidden_field_tag :crime_id, :value => @crime.id%>
+    <%#= hidden_field_tag :user_id, :value => @current_user.id%>
+    <%#= submit_tag "Post" %>
+    <%#end%>
+
+<% end %>
+</div>
+

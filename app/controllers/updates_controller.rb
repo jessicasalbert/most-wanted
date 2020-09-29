@@ -5,9 +5,12 @@ class UpdatesController < ApplicationController
     end
 
     def new
+       @update = Update.new
     end
 
     def create
+        @update = Update.create(update_params)
+        redirect_back(fallback_location: home_path)
     end
 
     def edit
@@ -18,5 +21,11 @@ class UpdatesController < ApplicationController
 
     def delete
 
+    end
+
+    private 
+
+    def update_params
+        params.require(:update).permit(:user_id, :crime_id, :content)
     end
 end

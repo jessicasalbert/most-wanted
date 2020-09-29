@@ -1,0 +1,62 @@
+
+<% if flash[:my_errors] %>
+  <% flash[:my_errors].each do |error| %>
+    <p> <%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @crime do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title  %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_field :description  %>
+  <br>
+  <%= f.label :hair_raw %>
+  <%= f.text_field :hair_raw %>
+  <br>
+  <%= f.label :details %>
+  <%= f.text_area :details  %>
+  <br>
+  <%= f.label :race_raw %>
+  <%= f.text_field :race_raw  %>
+  <br>
+  <%= f.label :eyes %>
+  <%= f.text_field :eyes  %>
+  <br>
+  <%= f.label :birthday %>
+  <%= f.text_field :birthday  %>
+  <br>
+  <%= f.label :city_id %>
+  <%= f.collection_select :city_id, City.all, :id, :name %>
+  <br>
+  <%= f.label :warning_message %>
+  <%= f.text_area :warning_message  %>
+  <br>
+   <%= f.label :image %>
+  <%= f.text_field :image %>
+  <br>
+  <%= f.label :scars_and_marks %>
+  <%= f.text_field :scars_and_marks  %>
+  <br>
+  <%= f.label :alias %>
+  <%= f.text_field :alias  %>
+  <br>
+  <%= f.label :caution %>
+  <%= f.text_area :caution  %>
+  <br>
+  <%= f.label :sex %>
+  <%= f.text_field :sex  %>
+  <br>
+  <%= f.label :remarks %>
+  <%= f.text_area :remarks  %>
+  <br>
+  <%= f.label :image_small %>
+  <%= f.text_field :image_small  %>
+  <br>
+  <%= f.label :reward %>
+  <%= f.number_field :reward  %>
+  <br>
+  <%= f.submit %>
+
+<% end %>
