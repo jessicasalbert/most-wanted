@@ -10,3 +10,25 @@ Navigation:
 -Crimes by cities
 -Login/Sign/Logout
 -Anonymous tips
+
+<h2>Do you know anything about these crimes?</h2>
+<table>
+    <% Crime.random_crimes.each do |crime| %>
+        <tr>
+            <td><%= image_tag crime.image_small %></td>
+            <td><%= link_to crime.title, crime_path(crime) %></td>
+            <td><%= crime.city.display_name %></td>
+        </tr>
+    <% end %>
+</table>
+
+<h2>5 Most Wanted</h2>
+<table>
+    <% Crime.five_most_wanted.each do |crime| %>
+        <tr>
+            <td><%= image_tag crime.image_small %></td>
+            <td><%= link_to crime.title, crime_path(crime) %></td>
+            <td>$<%= crime.reward %></td>
+        </tr>
+    <% end %>
+</table>
