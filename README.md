@@ -1,3 +1,3 @@
 # README
 
-test
+Run rails active_storage:install in terminal
