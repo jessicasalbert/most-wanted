@@ -1,10 +1,13 @@
-<h1><%=@city.display_name%></h1>
-<h2><%=@city.crimes.count%> cases</h2>
+
+<h1>Field Office: <%=@city.display_name%></h1>
+<hr>
+<h2>Total Crimes: <%=@city.crimes.count%></h2>
 
 
-<h3>Cases:</h3>
-<ul>
+<h3>Cases Files:</h3>
+<ol>
     <%@city.crimes.each do |crime| %>
-        <li><%=link_to crime.title, crime_path(crime)%></li>
+        <li> <%= image_tag crime.image_small %> <p> <%=link_to crime.title, crime_path(crime)%> </p> </li>
+
     <%end%>
-</ul>
+</ol>

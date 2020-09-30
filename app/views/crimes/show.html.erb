@@ -1,21 +1,20 @@
 
 <h1><%=@crime.title%></h1>
-<h2><%=@crime.city.display_name%></h2>
-<h2>Aliases: <%=@crime.filter_aliases%></h2>
-<h2><%=@crime.warning_message%></h2>
-<h2>Date of Birth on file: <%=@crime.filter_birthdays%></h2>
-
 <p><%=@crime.description%></p>
+<h2><%=@crime.city.display_name%></h2>
+<h2>Aliases: <%=@crime.filter_aliases %></h2>
+<h2><%=@crime.warning_message %></h2>
+<h2>Date of Birth on file: <%=@crime.filter_birthdays%></h2>
 
 <%= image_tag @crime.image %>
 
 <hr>
 <h2>Details</h2>
-<p>Sex: <%=@crime.sex%> </p>
-<p>Scars and marks: <%=@crime.scars_and_marks%></p>
-<p>Eye color: <%=@crime.eyes%> </p>
-<p>Hair color: <%=@crime.hair_raw%></p>
-<p>Race: <%=@crime.race_raw%></p>
+<p>Sex: <%=@crime.sex ||= "N/A"%> </p>
+<p>Scars and marks: <%=@crime.scars_and_marks ||= "N/A"%></p>
+<p>Eye color: <%=@crime.eyes ||= "N/A"%> </p>
+<p>Hair color: <%=@crime.hair_raw ||= "N/A"%></p>
+<p>Race: <%=@crime.race_raw ||= "N/A"%></p>
 
 <hr>
 <p><%= @crime.filter_details %></p>

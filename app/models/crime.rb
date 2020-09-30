@@ -49,7 +49,7 @@ class Crime < ApplicationRecord
             string = self.birthday.split(/\[|"|\]/)
             string.join("")
         else
-            nil
+            "N/A"
         end
     end
 
@@ -58,7 +58,7 @@ class Crime < ApplicationRecord
             string = self.alias.split(/\[|"|\]|\\|\//)
             string.join("")
         else
-            nil
+            "N/A"
         end
     end
 
