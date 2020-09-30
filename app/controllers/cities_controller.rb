@@ -8,5 +8,8 @@ class CitiesController < ApplicationController
 
     def show
         @city = City.find(params[:id])
+        # @ordered_cities = City.all.ordered
+        # @crimes_ordered_city = @ordered_cities
+        @ordered_crimes = @city.crimes.order(created_at: :desc)
     end
 end

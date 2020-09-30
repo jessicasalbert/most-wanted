@@ -3,7 +3,7 @@ require 'faker'
 
 Crime.destroy_all
 City.destroy_all
-#User.destroy_all
+User.destroy_all
 
 def seed_crimes
     page = 1

@@ -4,15 +4,21 @@
 <h2>Total Crimes: <%=@city.crimes.count%></h2>
 
 
-<h3>Cases Files:</h3>
+
+<%if logged_in? && @current_user.city == @city%>
+<p> <%=link_to "Post New Offense", new_crime_path%> </p>
+    <h3>Your Cases Files:</h3>
+<%end%>
 <ol>
-    <%@city.crimes.each do |crime| %>
+    <%@ordered_crimes.each do |crime| %>
         <li> <% if crime.image_small%>
                 <%= image_tag crime.image_small %>
-            <% elsif crime.user_image.attached? %>
+            <% end%>
+            <% if crime.user_image.attached? %>
                 <img style="max-width: 100px;"src=<%=url_for(crime.user_image)%>>
             <% end %>
-        <p> <%=link_to crime.title, crime_path(crime)%> </p> </li>
+        <p> <%=link_to crime.title, crime_path(crime)%> </p> 
+        </li>
 
     <%end%>
 </ol>

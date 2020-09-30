@@ -1,4 +1,4 @@
-<h1> Post New Crime </h1>
+<h1> Post New Crime for <%= @current_user.city.display_name%> </h1> 
 <hr>
 <% if flash[:my_errors] %>
   <% flash[:my_errors].each do |error| %>
@@ -27,9 +27,7 @@
   <br>
   <%= f.label :birthday %>
   <%= f.text_field :birthday  %>
-  <br>
-  <%= f.label :city_id %>
-  <%= f.collection_select :city_id, City.all, :id, :display_name %>
+  <%= f.hidden_field :city_id, :value => @current_user.city.id %>
   <br>
   <%= f.label :warning_message %>
   <%= f.text_area :warning_message  %>
