@@ -4,26 +4,40 @@
     <title>MostWanted</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
     <nav>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href=<%welcome_path%>>Welcome Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
 
+ 
     <% if logged_in? %>
-      <%= link_to "Welcome page", welcome_path %>
-      <%=link_to "Your crime updates", updates_path%>
-    <%=link_to "Your crimes", city_path(@current_user.city)%>
+      <%= link_to "Welcome Page", welcome_path %>
+      <%=link_to "Your Case Notifications/Updates", updates_path%>
+    <%=link_to "Your Cases", city_path(@current_user.city)%>
       
     <% else %>
       <%= link_to "Home", home_path %>
     <%end%>
 
-    <%= link_to "All crimes", crimes_path%>
-    <%= link_to "Crimes by city", cities_path %>
+    <%= link_to "View All Crimes", crimes_path%>
+    <%= link_to "Crimes by City/", cities_path %>
     
 
     
@@ -41,4 +55,7 @@
     <hr>
     <%= yield %>
   </body>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </html>
