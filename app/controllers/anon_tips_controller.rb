@@ -1,5 +1,5 @@
 class AnonTipsController < ApplicationController
-    
+    skip_before_action :authorized, only: [:new, :create]
     def new
         @anon_tip = AnonTip.new
     end
@@ -13,7 +13,7 @@ class AnonTipsController < ApplicationController
     private 
 
     def anon_tip_params
-        params.require[:anon_tip].permit(:crime_id, :tip)
+        params.require(:anon_tip).permit(:crime_id, :tip)
     end 
 
 

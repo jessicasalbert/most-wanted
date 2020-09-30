@@ -55,7 +55,7 @@ class Crime < ApplicationRecord
 
     def filter_aliases
         if self.alias
-            string = self.alias.split(/\[|"|\]/)
+            string = self.alias.split(/\[|"|\]|\\|\//)
             string.join("")
         else
             nil
