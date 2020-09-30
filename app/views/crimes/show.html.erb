@@ -1,8 +1,10 @@
 
 <h1><%=@crime.title%></h1>
+<h2><%=@crime.city.display_name%></h2>
 <h2>Aliases: <%=@crime.filter_aliases%></h2>
 <h2><%=@crime.warning_message%></h2>
-<h2>Date of Birth on file: <%=@crime.filter_birthdays ||= "N/A"%></h2>
+<h2>Date of Birth on file: <%=@crime.filter_birthdays%></h2>
+
 <p><%=@crime.description%></p>
 
 <%= image_tag @crime.image %>

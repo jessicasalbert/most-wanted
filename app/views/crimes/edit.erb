@@ -29,7 +29,7 @@
   <%= f.text_field :birthday  %>
   <br>
   <%= f.label :city_id %>
-  <%= f.collection_select :city_id, City.all, :id, :name %>
+  <%= f.collection_select :city_id, City.all, :id, :display_name %>
   <br>
   <%= f.label :warning_message %>
   <%= f.text_area :warning_message  %>

@@ -19,8 +19,8 @@ class Crime < ApplicationRecord
 
     def filter_details
         if self.details
-            string = self.details.split(/<p>|<\/p>/)
-            string.join("")
+            string = self.details.split(/<p>|<\/p>|<br \/>/)
+            string = string.join("")
         else
             nil
         end
@@ -28,7 +28,7 @@ class Crime < ApplicationRecord
 
     def filter_caution
         if self.caution
-            string = self.caution.split(/<p>|<\/p>/)
+            string = self.caution.split(/<p>|<\/p>|<br \/>/)
             string.join("")
         else
             nil
@@ -37,7 +37,7 @@ class Crime < ApplicationRecord
 
     def filter_remarks
         if self.remarks
-            string = self.remarks.split(/<p>|<\/p>/)
+            string = self.remarks.split(/<p>|<\/p>|<br \/>/)
             string.join("")
         else
             nil

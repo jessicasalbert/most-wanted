@@ -1,5 +1,5 @@
 class CrimesController < ApplicationController
-    skip_before_action :authorized, only: [:index, :show]
+    skip_before_action :authorized, only: [:index, :show, :new, :edit, :create, :update]
 
     def index
         @crimes = Crime.all
@@ -27,6 +27,9 @@ class CrimesController < ApplicationController
 
     def edit 
         @crime = Crime.find(params[:id])
+        if @current_user.city != @crime.city  
+            redirect_to crime_path(@crime)
+        end
     end
 
     def update
