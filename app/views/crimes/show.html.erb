@@ -5,9 +5,12 @@
 <h2>Aliases: <%=@crime.filter_aliases %></h2>
 <h2><%=@crime.warning_message %></h2>
 <h2>Date of Birth on file: <%=@crime.filter_birthdays%></h2>
-
-<%= image_tag @crime.image %>
-
+<% if @crime.image%>
+    <%= image_tag @crime.image %>
+<% end %>
+<% if @crime.user_image.attached? %>
+    <%= image_tag url_for(@crime.user_image)%>
+<% end %>
 <hr>
 <h2>Details</h2>
 <p>Sex: <%=@crime.sex ||= "N/A"%> </p>
