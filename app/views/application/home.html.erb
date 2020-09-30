@@ -1,16 +1,5 @@
 <h1>Hello <%= @current_user.name if logged_in? %></h1>
 
-Home page content:
--Random or recently added crimes
--Crimes with highest rewards - Most Wanted
-
-Navigation:
--Home
--Link to random crime
--Crimes by cities
--Login/Sign/Logout
--Anonymous tips
-
 <h2>Do you know anything about these crimes?</h2>
 <table>
     <% Crime.random_crimes.each do |crime| %>

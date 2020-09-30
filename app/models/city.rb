@@ -8,7 +8,7 @@ class City < ApplicationRecord
     end
 
     def self.ordered_by_crimes
-        City.all.order { |city| city.crimes.count }
+        #City.all.order { |city| city.crimes.count }
         
          #crimes.count
     end

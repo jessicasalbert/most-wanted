@@ -17,4 +17,49 @@ class Crime < ApplicationRecord
         Crime.all.order(reward: :desc).limit(5)
     end
 
+    def filter_details
+        if self.details
+            string = self.details.split(/<p>|<\/p>/)
+            string.join("")
+        else
+            nil
+        end
+    end
+
+    def filter_caution
+        if self.caution
+            string = self.caution.split(/<p>|<\/p>/)
+            string.join("")
+        else
+            nil
+        end
+    end
+
+    def filter_remarks
+        if self.remarks
+            string = self.remarks.split(/<p>|<\/p>/)
+            string.join("")
+        else
+            nil
+        end
+    end
+
+    def filter_birthdays
+        if self.birthday
+            string = self.birthday.split(/\[|"|\]/)
+            string.join("")
+        else
+            nil
+        end
+    end
+
+    def filter_aliases
+        if self.alias
+            string = self.alias.split(/\[|"|\]/)
+            string.join("")
+        else
+            nil
+        end
+    end
+
 end

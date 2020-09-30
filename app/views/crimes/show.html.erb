@@ -1,8 +1,8 @@
 
 <h1><%=@crime.title%></h1>
-<h2>Aliases: <%=@crime.alias%></h2>
+<h2>Aliases: <%=@crime.filter_aliases%></h2>
 <h2><%=@crime.warning_message%></h2>
-<h2>Date of Birth on file: <%=@crime.birthday ||= "N/A"%></h2>
+<h2>Date of Birth on file: <%=@crime.filter_birthdays ||= "N/A"%></h2>
 <p><%=@crime.description%></p>
 
 <%= image_tag @crime.image %>
@@ -16,11 +16,11 @@
 <p>Race: <%=@crime.race_raw%></p>
 
 <hr>
-<p><%= @crime.details%></p>
+<p><%= @crime.filter_details %></p>
 
-<p><%= @crime.caution%></p>
+<p><%= @crime.filter_caution%></p>
 
-<p><%= @crime.remarks%> </p>
+<p><%= @crime.filter_remarks%> </p>
 
 <p>View on FBI's website: <%= link_to @crime.url, @crime.url%></p>
 
@@ -61,11 +61,12 @@
             <%=f.text_area :content %>
             <br>
             <%=f.submit%>   
+        <%= link_to "Edit crime details", edit_crime_path%>
            
     <% end %>
      <%end%>
 
-    <%= link_to "Edit crime details", edit_crime_path%>
+    
 <% else %>
     <h4>Post an anonymous tip for this case</h4>
     <%= form_for AnonTip.new do |f| %>
