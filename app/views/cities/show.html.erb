@@ -9,8 +9,7 @@
     <%@city.crimes.each do |crime| %>
         <li> <% if crime.image_small%>
                 <%= image_tag crime.image_small %>
-            <% end %>
-            <% if crime.user_image.attached? %>
+            <% elsif crime.user_image.attached? %>
                 <img style="max-width: 100px;"src=<%=url_for(crime.user_image)%>>
             <% end %>
         <p> <%=link_to crime.title, crime_path(crime)%> </p> </li>
