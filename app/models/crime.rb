@@ -3,6 +3,7 @@ class Crime < ApplicationRecord
     has_many :updates
     has_many :users, through: :updates
     has_many :anon_tips
+    has_one_attached :user_image
 
     def self.ordered
         Crime.all.order(created_at: :desc)
