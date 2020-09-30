@@ -2,7 +2,7 @@ class CrimesController < ApplicationController
     skip_before_action :authorized, only: [:index, :show, :edit, :update]
 
     def index
-        @crimes = Crime.all
+        @crimes = Crime.all.ordered
     end
 
     def show

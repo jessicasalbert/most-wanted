@@ -4,6 +4,9 @@ class Crime < ApplicationRecord
     has_many :users, through: :updates
     has_many :anon_tips
 
+    def self.ordered
+        Crime.all.order(created_at: :desc)
+    end
 
     def self.random_crimes
         randoms = []
