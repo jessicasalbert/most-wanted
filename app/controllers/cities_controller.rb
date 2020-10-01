@@ -1,9 +1,14 @@
 class CitiesController < ApplicationController
-    skip_before_action :authorized, only: [:new, :create, :index, :show]
+    skip_before_action :authorized, only: [:index, :show]
 
 
     def index
         @cities = City.all.ordered
+    end
+
+    def create
+        @cities = City.ordered_by_crimes
+        render :index 
     end
 
     def show

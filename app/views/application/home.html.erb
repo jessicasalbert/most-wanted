@@ -1,7 +1,9 @@
-<h1>Hello <%= @current_user.name if logged_in? %></h1>
 
-<h2>Do you know anything about these crimes?</h2>
-<table>
+<h1>DO YOU KNOW ANYTHING ABOUT THESE CRIMES?</h1>
+<hr>
+<div class="text-center">
+<table class='table'>
+<h2> Random Crimes </h2>
     <% Crime.random_crimes.each do |crime| %>
         <tr>
             <td><% if crime.image_small%>
@@ -10,12 +12,14 @@
                     <img style="max-width: 100px;"src=<%=url_for(crime.user_image)%>>
                 <% end %></td>
             <td><%= link_to crime.title, crime_path(crime) %></td>
-            <td><%= crime.city.display_name %></td>
+            <td>City: <%= crime.city.display_name %></td>
         </tr>
     <% end %>
 </table>
+</div>
 
-<h2>5 Most Wanted</h2>
+<div class="text-center">
+<h2>Five Most Wanted</h2>
 <table>
     <% Crime.five_most_wanted.each do |crime| %>
         <tr>
@@ -25,7 +29,8 @@
                     <img style="max-width: 100px;"src=<%=url_for(crime.user_image)%>>
                 <% end %></td>
             <td><%= link_to crime.title, crime_path(crime) %></td>
-            <td>$<%= crime.reward %></td>
+            <td>Toal Reward: $<%= crime.reward %></td>
         </tr>
     <% end %>
 </table>
+</div>

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   post '/login', to: 'users#handle_login'
   delete '/logout', to: 'users#logout'
   post '/updates/:id', to: 'updates#create', as: 'post_update'
+  post '/cities', to: "cities#high_crime"
 end

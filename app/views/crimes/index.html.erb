@@ -3,7 +3,18 @@
 
 <div class="container">
 <% @crimes.each do |crime| %>
-    <p> <%=link_to crime.title, crime_path(crime) %></p>
-    <p> <%# image_tag 'filename' %></p>
+    <div class="card" style="width: 10rem;">
+        <% if crime.image_small%>
+            <img class="card-img-top" src=<%=crime.image_small%>>
+        <% end %>
+        <% if crime.user_image.attached? %>
+            <img class="card-img-top" style="max-width: 200px;"src=<%=url_for(crime.user_image)%>>
+        <% end %>
+        <div class="card-body">
+            <p class="card-text"><%=link_to crime.title, crime_path(crime) %></p>
+            <p class="card-text"><%=crime.city.display_name %></p>
+        </div>
+    </div>
+
 <%end%>
 </div>
