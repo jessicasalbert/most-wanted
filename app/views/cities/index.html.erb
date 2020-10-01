@@ -1,9 +1,10 @@
 <h1>Cities & Case counts</h1>
 
 <%= button_to 'Order by Crime Count', {:action => "high_crime", :method => :get} %>
-<ul>
+<br>
+<ul class="list-group">
 <% @cities.each do |city| %>
-    <li>
+    <li class="list-group-item">
         <%=link_to city.display_name, city_path(city) %><ul>
         <li> <%= city.crimes.count %> crimes</li>
     </ul></li>

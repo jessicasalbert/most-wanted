@@ -13,23 +13,25 @@
   <%= f.label :description %> <br>
   <%= f.text_field :description %> <br>
   <br>
-  <%= f.label :hair_raw %> <br>
-  <%= f.text_field :hair_raw %> <br>
-  <br>
   <%= f.label :details %> <br>
   <%= f.text_area :details  %> <br>
   <br>
-  <%= f.label :race_raw %> <br>
+  <%= f.label "Hair color" %> <br>
+  <%= f.text_field :hair_raw %> <br>
+  <br>
+  <%= f.label "Race" %> <br>
   <%= f.text_field :race_raw  %> <br>
   <br>
-  <%= f.label :eyes %> <br>
+  <%= f.label "Eye color" %> <br>
   <%= f.text_field :eyes  %> <br>
+  <br>
+  <%= f.label :sex %> <br>
+  <%= f.text_field :sex  %> <br>
   <br>
   <%= f.label :birthday %> <br>
   <%= f.text_field :birthday  %> <br>
   <br>
-  <%= f.label :city_id %> <br>
-  <%= f.collection_select :city_id, City.all, :id, :display_name %> <br>
+  <%= f.hidden_field :city_id, :value => @current_user.city.id %>
   <br>
   <%= f.label :warning_message %> <br>
   <%= f.text_area :warning_message  %> <br>
@@ -45,17 +47,11 @@
   <%= f.label :alias %> <br>
   <%= f.text_field :alias  %> <br>
   <br>
-  <%= f.label :caution %> <br>
+  <%= f.label "Additional concerns" %> <br>
   <%= f.text_area :caution  %> <br>
   <br>
-  <%= f.label :sex %> <br>
-  <%= f.text_field :sex  %> <br>
-  <br>
-  <%= f.label :remarks %> <br>
+  <%= f.label "Final details" %> <br>
   <%= f.text_area :remarks  %> <br>
-  <br>
-  <%= f.label :image_small %> <br>
-  <%= f.text_field :image_small  %> <br>
   <br>
   <%= f.label :reward %> <br>
   <%= f.number_field :reward  %> <br>

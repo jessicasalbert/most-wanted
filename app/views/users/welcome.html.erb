@@ -1,9 +1,22 @@
-<h1>Welcome <%=@current_user.name%></h1>
+<h1>Welcome, <%=@current_user.name%></h1>
+<br><br>
+<div class="text-center welcome">
+<h2>Five Most Wanted</h2>
+<table class="table">
+    <% Crime.five_most_wanted.each do |crime| %>
+        <tr>
+            <td><% if crime.image_small%>
+                    <%= image_tag crime.image_small %>
+                <% elsif crime.user_image.attached? %>
+                    <img style="max-width: 100px;"src=<%=url_for(crime.user_image)%>>
+                <% end %></td>
+            <td><%= link_to crime.title, crime_path(crime) %></td>
+            <td>Total Reward: $<%= crime.reward %></td>
+        </tr>
+    <% end %>
+</table>
+</div>
 
-
-<%=link_to "Crimes updates for #{@current_user.city.display_name}", updates_path%>
-<br>
-<%=link_to "Your crimes", city_path(@current_user.city)%>
 
 
 <%# five most recent updates, tip alerts, urgent things%>

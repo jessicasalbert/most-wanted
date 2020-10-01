@@ -78,3 +78,11 @@ td, th {
 .header-txt {
     color: white
 }
+
+textarea {
+    resize: horizontal;
+}
+
+.welcome {
+    max-width: 700px;
+}
