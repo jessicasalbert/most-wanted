@@ -27,3 +27,15 @@
     background-color: black;
     border-radius: 25%;
 }
+.background-fill {
+    background-color: navy;
+}
+
+.image-max-size {
+    width: 150px;
+}
+
+.no-img-place-holder {
+    width: 150px;
+    height: 200px
+}
