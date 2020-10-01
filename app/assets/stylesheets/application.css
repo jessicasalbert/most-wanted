@@ -50,4 +50,5 @@ nav {
     flex-wrap : wrap;
     justify-content: center;
     align-items: stretch;
+    margin: 5px;
   }

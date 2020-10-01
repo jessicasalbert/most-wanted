@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MostWanted</title>
+    <title>Flatiron's Most Wanted</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -20,7 +20,7 @@
           <%= link_to "Welcome Page", welcome_path, :class => "nav-link"%>
         </li>
         <li class="nav-item">
-        <%=link_to "Your Case Notifications/Updates", updates_path, :class => "nav-link" %>
+        <%=link_to "Your Case Updates", updates_path, :class => "nav-link" %>
         </li>
         <li class="nav-item">
           <%=link_to "Your Cases", city_path(@current_user.city), :class => "nav-link" %>
@@ -66,7 +66,7 @@
     <hr>
     <%= yield %>
   </body>
-  <footer>
+  <footer class="sticky-bottom background-fill">
   <div class="row">
   <div class= "col-6">
     <a>test</a>

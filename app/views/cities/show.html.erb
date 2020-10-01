@@ -1,12 +1,14 @@
 
 <h1>Field Office: <%=@city.display_name%></h1>
+<h2>Total Crimes: <%=@city.crimes.count%></h2> 
 <hr>
-<h2>Total Crimes: <%=@city.crimes.count%></h2>
 
 
 
 <%if logged_in? && @current_user.city == @city%>
-<p> <%=link_to "Post New Offense", new_crime_path%> </p>
+<div class="text-center" >
+<button type="button" class="btn btn-warning btn-lg"> <b> <%=link_to "Post New Offense", new_crime_path%></b> </button>
+</div>
     <h3>Your Cases Files:</h3>
 <%end%>
 

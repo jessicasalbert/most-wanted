@@ -8,9 +8,7 @@ class City < ApplicationRecord
     end
 
     def self.ordered_by_crimes
-        #City.all.order { |city| city.crimes.count }
-        
-         #crimes.count
+        City.all.sort_by{|c| c.crimes.length}.reverse
     end
        
 
