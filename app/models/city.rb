@@ -11,5 +11,8 @@ class City < ApplicationRecord
         City.all.sort_by{|c| c.crimes.length}.reverse
     end
        
+    def most_wanted_by_city
+        self.crimes.order(reward: :desc).limit(5)
+    end
 
 end

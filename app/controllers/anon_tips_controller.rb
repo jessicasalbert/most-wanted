@@ -1,5 +1,7 @@
 class AnonTipsController < ApplicationController
     skip_before_action :authorized, only: [:new, :create]
+    
+    
     def new
         @anon_tip = AnonTip.new
     end

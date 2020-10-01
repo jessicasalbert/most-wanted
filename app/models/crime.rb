@@ -17,6 +17,7 @@ class Crime < ApplicationRecord
         randoms
     end
 
+
     def self.five_most_wanted
         Crime.all.order(reward: :desc).limit(5)
     end

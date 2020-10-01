@@ -1,5 +1,5 @@
 
-<h1><%=@crime.title%></h1>
+<h1 class="highlight"><%=@crime.title%></h1>
 <% if @crime.warning_message%>
     <h2 class="alert-danger"><%=@crime.warning_message %></h2>
 <% end %>
@@ -11,7 +11,7 @@
 <br>
 <hr>
 
-<h4>Recent LEO updates</h4>
+<h4 class="highlight">Recent LEO updates</h4>
     <table class="table"> 
     <% @crime.updates.each do |update| %>
             <tr>
@@ -68,6 +68,10 @@
     </tbody>
 </table>
 
+
+
+
+
 <hr>
 
 <p class="reward">Reward: $<%= @crime.reward %></p>
@@ -76,9 +80,11 @@
     <p>View on FBI's website: <%= link_to @crime.url, @crime.url %> </p>
 <% end %>
 
+<% if logged_in? && @current_user.city == @crime.city %>
+    <button type="button" class="btn btn-warning"><%= link_to "Edit crime details", edit_crime_path%></button>
+<% end %>
 
-
-
+<br><br><br>
 <h3>Anonymous tips reported</h3>
 <table class="table"> 
     <% @crime.anon_tips.each do |tip| %>
@@ -92,6 +98,7 @@
   
 
 <div>
+<br><br>
 <% if logged_in? %>
     <% if @current_user.city == @crime.city %>
         <h4>Add a new update for this case</h4>
@@ -101,10 +108,8 @@
             <%=f.text_area :content %>
             <br>
             <%=f.submit%>   
-        <%= link_to "Edit crime details", edit_crime_path%>
-           
     <% end %>
-     <%end%>
+<%end%>
 
     
 <% else %>

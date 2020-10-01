@@ -55,11 +55,11 @@ nav {
 
   body {
       background-color: black;
-      color: lightgray
+      color: white
 }
 
 td, th {
-    color: lightgray
+    color: white
 }
 
 .reward {
@@ -83,6 +83,12 @@ textarea {
     resize: horizontal;
 }
 
-.welcome {
-    max-width: 700px;
+
+
+.cities {
+    max-width: 500px;
+}
+
+.highlight {
+    color: #ffcc00;
 }

@@ -1,26 +1,46 @@
 <h1>Welcome, <%=@current_user.name%></h1>
 <br><br>
 <div class="text-center welcome">
-<h2>Five Most Wanted</h2>
+<h2>Your Most Wanted for <%=@current_user.city.display_name%></h2>
+<hr>
 <table class="table">
-    <% Crime.five_most_wanted.each do |crime| %>
-        <tr>
-            <td><% if crime.image_small%>
-                    <%= image_tag crime.image_small %>
-                <% elsif crime.user_image.attached? %>
-                    <img style="max-width: 100px;"src=<%=url_for(crime.user_image)%>>
-                <% end %></td>
-            <td><%= link_to crime.title, crime_path(crime) %></td>
-            <td>Total Reward: $<%= crime.reward %></td>
-        </tr>
-    <% end %>
+  <thead>
+    <tr>
+      <th scope="col"><b>PICTURE</b></th>
+      <th scope="col"><b>CRIME TITLE</b></th>
+      <th scope="col"><b>BOUNTY REWARD</th>
+    </tr>
+  </thead>
+        <% @current_user.city.most_wanted_by_city.each do |crime| %>
+            <tr>
+                <td><% if crime.image_small%>
+                        <%= image_tag crime.image_small %>
+                    <% elsif crime.user_image.attached? %>
+                        <img style="max-width: 100px;"src=<%=url_for(crime.user_image)%>>
+                    <% end %></td>
+                <td><%= link_to crime.title, crime_path(crime) %></td>
+                <td>Total Reward: $<%= crime.reward %></td>
+            </tr>
+        <% end %>
 </table>
 </div>
 
-
-
-<%# five most recent updates, tip alerts, urgent things%>
-<%# most wanted for user's own cases%>
-<%# logout, login%>
-<%# create new crime %>
+<h3>Anonymous tips reported:</h3>
+<hr>
+<table class="table"> 
+  <thead>
+    <tr>
+      <th scope="col"><b>DESCRIPTION</b></th>
+      <th scope="col"><b>CRIME TITLE</b></th>
+      <th scope="col"><b>DATE REPORTED</th>
+    </tr>
+  </thead>
+    <% AnonTip.all.each do |tip| %>
+            <tr>
+                <td> <%= tip.tip %></td>
+                <td> <%= link_to tip.crime.title, crime_path(tip.crime)%></td>
+                <td> <%= tip.created_at.strftime('%m-%d-%Y') %></td>
+            </tr>
+    <% end %>
+</table>
 
