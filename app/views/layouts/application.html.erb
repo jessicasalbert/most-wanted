@@ -52,29 +52,6 @@
       <b>Logged in as: <%= @current_user.username %>, ID: <%= @current_user.badge_id%></b>
     <% end %>
 
-  <hr>
-    <% if logged_in? %>
-      <%= link_to "Welcome Page", welcome_path %>
-      <%=link_to "Your Case Notifications/Updates", updates_path%>
-    <%=link_to "Your Cases", city_path(@current_user.city)%>
-      
-    <% else %>
-      <%= link_to "Home", home_path %>
-    <%end%>
-
-    <%= link_to "View All Crimes", crimes_path%>
-    <%= link_to "Crimes by City/", cities_path %>
-    
-
-    
-    <% if logged_in? %>
-      <b>Logged in as: <%= @current_user.username %> ID: <%= @current_user.badge_id%></b>
-      <%= button_to "Log out", '/logout', method: :delete %>
-    <% else %>
-      <%= link_to "Login", login_path %>
-      <%= link_to "Register", new_user_path %>
-    <%end%>
-
 
 
     </nav>
