@@ -16,22 +16,22 @@
 
 
 .nav-link {
-    color: black;
-    margin: 10px;
-    border-radius: 10%;
-    font-family: fantasy;
-    font-weight: bold;
+    margin: 8px;
+    border-radius: 25%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: white;
     background-color: black;
 }
 
+nav {
+    margin: 10px;
+}
+
 .nav-link:hover {
-    color: black;
-    background-color: yellow;
-    border-radius: 10%;
+    color: yellow;
 }
 .background-fill {
-    background-color: navy;
+    background-color: #4d79ff;
 }
 
 .image-max-size {
@@ -42,3 +42,14 @@
     width: 150px;
     height: 200px
 }
+
+.btn.btn-secondary.btn-sm {
+    padding: 2px;
+}
+
+.container {
+    display: flex; /* or inline-flex */
+    flex-wrap : wrap;
+    justify-content: center;
+    align-items: stretch;
+  }

@@ -1,7 +1,9 @@
 <h1>All crimes</h1>
 
-<ul>
+
+<div class="container">
 <% @crimes.each do |crime| %>
-    <li> <%=link_to crime.title, crime_path(crime) %></li>
+    <p> <%=link_to crime.title, crime_path(crime) %></p>
+    <p> <%# image_tag 'filename' %></p>
 <%end%>
-</ul>
+</div>
