@@ -9,16 +9,28 @@
 <p> <%=link_to "Post New Offense", new_crime_path%> </p>
     <h3>Your Cases Files:</h3>
 <%end%>
-<ol>
-    <%@ordered_crimes.each do |crime| %>
-        <li> <% if crime.image_small%>
-                <%= image_tag crime.image_small %>
-            <% end%>
-            <% if crime.user_image.attached? %>
-                <img style="max-width: 100px;"src=<%=url_for(crime.user_image)%>>
-            <% end %>
-        <p> <%=link_to crime.title, crime_path(crime)%> </p> 
-        </li>
 
+    <div class= "card-columns">
+    <%@ordered_crimes.each do |crime| %>
+            <%#for image%>
+            <div class="card">
+             <div class="no-img-place-holder">
+              <% if crime.image_small%>
+                  <%= image_tag crime.image_small, :class => "card-img-top image-max-size" %>
+              <% end%>
+              <% if crime.user_image.attached? %>
+                <img class="card-img-top image-max-size" src=<%=url_for(crime.user_image) %>>
+             <% end %>
+             <%# if there's no small image%>
+            </div>
+
+                
+
+                <div class="card-body">
+                    <h5 class="card-title"><%=crime.title%></h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted"><%=link_to crime.title, crime_path(crime)%> </small></p>
+                </div>
+            </div>
     <%end%>
-</ol>
+    </div>
