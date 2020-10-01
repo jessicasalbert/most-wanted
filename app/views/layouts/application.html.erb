@@ -14,7 +14,6 @@
     <nav>
     
     <ul class="nav nav-tabs">
-
       <% if logged_in? %>
         <li class="nav-item">
           <%= link_to "Welcome Page", welcome_path, :class => "nav-link"%>
@@ -44,22 +43,16 @@
         <li class="nav-item">
           <%= link_to "LEO Register", new_user_path, :class => "nav-link" %>
         </li>
-
       <%end%>
-
-
     </ul>
 
     <div >
     <% if logged_in? %>
-      <b class="header-txt">Logged in as: <%= @current_user.username %> ID: <%= @current_user.badge_id%></b>
+      <b class="header-txt">Logged in as: <span class="badge badge-light"><%= @current_user.username %></span> ID: <span class="badge badge-light"><%= @current_user.badge_id%> </span></b>
       <%= button_to "Log out", '/logout', method: :delete, :class => "btn btn-secondary btn-sm" %>
     <% end %>
     </div>
     </div>
-
-
-  
 
     </nav>
     </div>
@@ -79,7 +72,6 @@
             <a>Terrorism </a> <br>
             <a>Missing Persons</a> <br>
             <a>Submit a Tip</a><br>
-
           </div>
         </div>
       </div>
@@ -92,25 +84,23 @@
             <a>Press Release</a> <br>
             <a>Photos</a> <br>
             <a>Apps</a><br>
-
           </div>
         </div>
       </div>
   
-  <div class= "col-2">
-      <div class= "text-center">
-        <h5><b>Services </b></h5>
-          <div class= "text-center">
-            <a>Training Academy</a> <br>
-            <a>Laboratory</a> <br>
-            <a>Tour</a> <br>
-            <a>Crime Statistics</a><br>
-
-          </div>
+      <div class= "col-2">
+        <div class= "text-center">
+          <h5><b>Services </b></h5>
+            <div class= "text-center">
+              <a>Training Academy</a> <br>
+              <a>Laboratory</a> <br>
+              <a>Tour</a> <br>
+              <a>Crime Statistics</a><br>
+            </div>
         </div>
       </div>
 
-  <div class= "col-2">
+    <div class= "col-2">
       <div class= "text-center">
         <h5><b>Resources</b></h5>
           <div class= "text-center">
@@ -118,7 +108,6 @@
             <a>Businesses</a> <br>
             <a>Victim Assistance</a> <br>
             <a>Articles & Publications</a><br>
-
           </div>
         </div>
       </div>
@@ -144,12 +133,11 @@
             <a>Headquarters</a> <br>
             <a>Overseas</a> <br>
             <a>Assistance</a><br>
-
           </div>
         </div>
       </div>
-
 </div>
+
 </footer>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
