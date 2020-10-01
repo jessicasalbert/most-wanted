@@ -1,39 +1,86 @@
 
 <h1><%=@crime.title%></h1>
-<p><%=@crime.description%></p>
-<h2><%=@crime.city.display_name%></h2>
-<h2>Aliases: <%=@crime.filter_aliases %></h2>
-<h2><%=@crime.warning_message %></h2>
-<h2>Date of Birth on file: <%=@crime.filter_birthdays%></h2>
-<% if @crime.image%>
-    <%= image_tag @crime.image %>
+<% if @crime.warning_message%>
+    <h2 class="alert-danger"><%=@crime.warning_message %></h2>
 <% end %>
-<% if @crime.user_image.attached? %>
-    <img style="max-width: 700px;"src=<%=url_for(@crime.user_image)%>>
-<% end %>
+
+<h4><%=@crime.city.display_name%></h4>
+<h4>Aliases: <%=@crime.filter_aliases %></h4>
+
+<h4>Date of Birth on file: <%=@crime.filter_birthdays%></h4>
+<br>
+<hr>
+
+<h4>Recent LEO updates</h4>
+    <table class="table"> 
+    <% @crime.updates.each do |update| %>
+            <tr>
+                <td> <%= update.content %></td>
+                <td> <%= update.created_at.strftime('%m-%d-%Y') %></td>
+                <% if logged_in? && @current_user.city == @crime.city%>
+                    <td> <%= button_to "Delete", update_path(update), method: :delete %></td>
+                <%end%>
+            </tr>
+        <% end %>
+    </table>
+
+
+<p class="crime"><%=@crime.description%></p>
+
+<p class="crime"><%= @crime.filter_details %></p>
+
+<p class="crime"><%= @crime.filter_caution%></p>
+
+<p class="crime"><%= @crime.filter_remarks%> </p>
+
+<div class="text-center crime-img">
+    <% if @crime.image%>
+        <%= image_tag @crime.image %>
+    <% end %>
+    <% if @crime.user_image.attached? %>
+        <img style="max-width: 700px;"src=<%=url_for(@crime.user_image)%>>
+    <% end %>
+</div>
 <hr>
 <h2>Details</h2>
-<p>Sex: <%=@crime.sex ||= "N/A"%> </p>
-<p>Scars and marks: <%=@crime.scars_and_marks ||= "N/A"%></p>
-<p>Eye color: <%=@crime.eyes ||= "N/A"%> </p>
-<p>Hair color: <%=@crime.hair_raw ||= "N/A"%></p>
-<p>Race: <%=@crime.race_raw ||= "N/A"%></p>
+<table class="table table-striped">
+    <tbody>
+        <tr>
+        <th scope="row">Sex</th>
+        <td><%=@crime.sex ||= "N/A"%></td>
+        </tr>
+        <tr>
+        <th scope="row">Scars/Marks</th>
+        <td><%=@crime.scars_and_marks ||= "N/A"%></td>
+        </tr>
+        <tr>
+        <th scope="row">Eye color</th>
+        <td><%=@crime.eyes ||= "N/A"%> </td>
+        </tr>
+        <tr>
+        <th scope="row">Hair color</th>
+        <td><%=@crime.hair_raw ||= "N/A"%></td>
+        </tr>
+        <tr>
+        <th scope="row"> Race </th>
+        <td><%=@crime.race_raw ||= "N/A"%></td>
+        </tr>
+    </tbody>
+</table>
 
 <hr>
-<p><%= @crime.filter_details %></p>
 
-<p><%= @crime.filter_caution%></p>
+<p class="reward">Reward: $<%= @crime.reward %></p>
 
-<p><%= @crime.filter_remarks%> </p>
-
-<p>View on FBI's website: <a href=<% @crime.url%>></a> </p>
-
+<% if @crime.url%>
+    <p>View on FBI's website: <%= link_to @crime.url, @crime.url %> </p>
+<% end %>
 
 
-<h3>Reward: $<%= @crime.reward%></h3>
+
 
 <h3>Anonymous tips reported</h3>
-<table> 
+<table class="table"> 
     <% @crime.anon_tips.each do |tip| %>
             <tr>
                 <td> <%= tip.tip %></td>
@@ -46,17 +93,6 @@
 
 <div>
 <% if logged_in? %>
-    <h4>Recent updates</h4>
-    <table> 
-    <% @crime.updates.each do |update| %>
-            <tr>
-                <td> <%= update.content %></td>
-                <td> <%= update.created_at.strftime('%m-%d-%Y') %></td>
-                <td> <%= button_to "Delete", update_path(update), method: :delete %></td>
-            </tr>
-        <% end %>
-    </table>
-
     <% if @current_user.city == @crime.city %>
         <h4>Add a new update for this case</h4>
         <%= form_for Update.new do |f| %>

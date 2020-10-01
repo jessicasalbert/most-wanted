@@ -7,59 +7,59 @@
 <% end %>
 
 <%= form_for @crime do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title  %>
+  <%= f.label :title %> <br>
+  <%= f.text_field :title  %> <br>
   <br>
-  <%= f.label :description %>
-  <%= f.text_field :description  %>
+  <%= f.label :description %> <br>
+  <%= f.text_field :description %> <br>
   <br>
-  <%= f.label :hair_raw %>
-  <%= f.text_field :hair_raw %>
+  <%= f.label :hair_raw %> <br>
+  <%= f.text_field :hair_raw %> <br>
   <br>
-  <%= f.label :details %>
-  <%= f.text_area :details  %>
+  <%= f.label :details %> <br>
+  <%= f.text_area :details  %> <br>
   <br>
-  <%= f.label :race_raw %>
-  <%= f.text_field :race_raw  %>
+  <%= f.label :race_raw %> <br>
+  <%= f.text_field :race_raw  %> <br>
   <br>
-  <%= f.label :eyes %>
-  <%= f.text_field :eyes  %>
+  <%= f.label :eyes %> <br>
+  <%= f.text_field :eyes  %> <br>
   <br>
-  <%= f.label :birthday %>
-  <%= f.text_field :birthday  %>
+  <%= f.label :birthday %> <br>
+  <%= f.text_field :birthday  %> <br>
   <br>
-  <%= f.label :city_id %>
-  <%= f.collection_select :city_id, City.all, :id, :display_name %>
+  <%= f.label :city_id %> <br>
+  <%= f.collection_select :city_id, City.all, :id, :display_name %> <br>
   <br>
-  <%= f.label :warning_message %>
-  <%= f.text_area :warning_message  %>
+  <%= f.label :warning_message %> <br>
+  <%= f.text_area :warning_message  %> <br>
   <br>
-  <%= f.label "Image URL " %>
+  <%= f.label "Image URL " %> <br>
   <%= f.text_field :image %>
   <%= f.label " Or upload image" %>
-  <%= f.file_field :user_image %>
+  <%= f.file_field :user_image %> <br>
   <br>
-  <%= f.label :scars_and_marks %>
-  <%= f.text_field :scars_and_marks  %>
+  <%= f.label :scars_and_marks %> <br>
+  <%= f.text_field :scars_and_marks  %> <br>
   <br>
-  <%= f.label :alias %>
-  <%= f.text_field :alias  %>
+  <%= f.label :alias %> <br>
+  <%= f.text_field :alias  %> <br>
   <br>
-  <%= f.label :caution %>
-  <%= f.text_area :caution  %>
+  <%= f.label :caution %> <br>
+  <%= f.text_area :caution  %> <br>
   <br>
-  <%= f.label :sex %>
-  <%= f.text_field :sex  %>
+  <%= f.label :sex %> <br>
+  <%= f.text_field :sex  %> <br>
   <br>
-  <%= f.label :remarks %>
-  <%= f.text_area :remarks  %>
+  <%= f.label :remarks %> <br>
+  <%= f.text_area :remarks  %> <br>
   <br>
-  <%= f.label :image_small %>
-  <%= f.text_field :image_small  %>
+  <%= f.label :image_small %> <br>
+  <%= f.text_field :image_small  %> <br>
   <br>
-  <%= f.label :reward %>
-  <%= f.number_field :reward  %>
-  <br>
-  <%= f.submit %>
+  <%= f.label :reward %> <br>
+  <%= f.number_field :reward  %> <br>
+  <br> <br>
+  <%= f.submit %> 
 
 <% end %>

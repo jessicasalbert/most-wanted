@@ -39,10 +39,10 @@
       </li>
       <% if !logged_in? %>
         <li class="nav-item">
-          <%= link_to "Login", login_path, :class => "nav-link" %>
+          <%= link_to "LEO Login", login_path, :class => "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Register", new_user_path, :class => "nav-link" %>
+          <%= link_to "LEO Register", new_user_path, :class => "nav-link" %>
         </li>
 
       <%end%>
@@ -66,28 +66,91 @@
     <hr>
     <%= yield %>
   </body>
-  <footer class="sticky-bottom background-fill">
+ 
+<footer class="sticky-bottom background-fill">
+<hr>
+
   <div class="row">
-  <div class= "col-6">
-    <a>test</a>
-    <a>test</a>
-    <a>test</a>
-    <a>test</a>
-    <a>test</a>
+    <div class= "col-2">
+      <div class= "text-center">
+        <h5><b>Most Wanted</b></h5>
+          <div class= "text-center">
+            <a>Fugitives</a> <br>
+            <a>Terrorism </a> <br>
+            <a>Missing Persons</a> <br>
+            <a>Submit a Tip</a><br>
 
-  </div>
+          </div>
+        </div>
+      </div>
   
-  <div class= "col-3">
-    hello
-  </div>
+    <div class= "col-2">
+      <div class= "text-center">
+        <h5><b>News & Media</b></h5>
+          <div class= "text-center">
+            <a>Videos</a> <br>
+            <a>Press Release</a> <br>
+            <a>Photos</a> <br>
+            <a>Apps</a><br>
+
+          </div>
+        </div>
+      </div>
   
-  <div class= "col-3">
-    hello
-  </div>
+  <div class= "col-2">
+      <div class= "text-center">
+        <h5><b>Services </b></h5>
+          <div class= "text-center">
+            <a>Training Academy</a> <br>
+            <a>Laboratory</a> <br>
+            <a>Tour</a> <br>
+            <a>Crime Statistics</a><br>
 
-  </div>
+          </div>
+        </div>
+      </div>
 
-  </footer>
+  <div class= "col-2">
+      <div class= "text-center">
+        <h5><b>Resources</b></h5>
+          <div class= "text-center">
+            <a>Law Enforcement</a> <br>
+            <a>Businesses</a> <br>
+            <a>Victim Assistance</a> <br>
+            <a>Articles & Publications</a><br>
+
+          </div>
+        </div>
+      </div>
+  
+  <div class= "col-2">
+      <div class= "text-center">
+        <h5><b>About</b></h5>
+          <div class= "text-center">
+            <a>Mission</a> <br>
+            <a>Partnerships</a> <br>
+            <a>History</a> <br>
+            <a>FAQs</a><br>
+
+          </div>
+        </div>
+      </div>
+  
+  <div class= "col-2">
+      <div class= "text-center">
+        <h5><b>Contact Us</b></h5>
+          <div class= "text-center">
+            <a>Field Offices</a> <br>
+            <a>Headquarters</a> <br>
+            <a>Overseas</a> <br>
+            <a>Assistance</a><br>
+
+          </div>
+        </div>
+      </div>
+
+</div>
+</footer>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
