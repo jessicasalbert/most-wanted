@@ -17,13 +17,27 @@
 
 .nav-link {
     color: black;
-    margin: 20px;
-    border-radius: 25%;
-    font-family: Georgia, 'Times New Roman', Times, serif
+    margin: 10px;
+    border-radius: 10%;
+    font-family: fantasy;
+    color: white;
+    background-color: black;
 }
 
 .nav-link:hover {
-    color: white;
-    background-color: black;
-    border-radius: 25%;
+    color: black;
+    background-color: yellow;
+    border-radius: 10%;
+}
+
+.nav {
+    border: 1px black solid;
+}
+
+li {
+    display: inline
+}
+
+body {
+    margin: 30px;
 }

@@ -12,21 +12,47 @@
   <body>
     <nav>
     <ul class="nav nav-tabs">
+    <% if !logged_in? %>
       <li class="nav-item">
-        <a class="nav-link active" href=<%welcome_path%>>Welcome Page</a>
+        <a class="nav-link" href="<%=home_path %>">Home</a>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <a class="nav-link" href="<%=welcome_path %>">Welcome Page</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="<%=updates_path %>">My Updates</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="<%=city_path(@current_user.city) %>">My Crimes</a>
+      </li>
+    <% end %>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= crimes_path%>">View All Crimes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href="<%= cities_path %>">Crimes By City</a>
       </li>
+      <% if !logged_in? %>
+      <li class="nav-item">
+        <a class="nav-link" href="<%=login_path%>">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%=new_user_path%>">Register</a>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= button_to "Log out", '/logout', method: :delete %>
+      </li>
+      <% end %>
+      
     </ul>
 
- 
+    <% if logged_in? %>
+      <b>Logged in as: <%= @current_user.username %>, ID: <%= @current_user.badge_id%></b>
+    <% end %>
+
+  <hr>
     <% if logged_in? %>
       <%= link_to "Welcome Page", welcome_path %>
       <%=link_to "Your Case Notifications/Updates", updates_path%>
