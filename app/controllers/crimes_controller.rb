@@ -49,7 +49,7 @@ class CrimesController < ApplicationController
     end
 
     def crime_params 
-        params.require(:crime).permit(:description, :hair_raw, :details, :race_raw, :eyes, :image, :birthday, :city_id, :created_at, :warning_message, :scars_and_marks, :alias, :caution, :sex, :url, :remarks, :image_small, :reward, :search)
+        params.require(:crime).permit(:title, :user_image, :description, :hair_raw, :details, :race_raw, :eyes, :image, :birthday, :city_id, :created_at, :warning_message, :scars_and_marks, :alias, :caution, :sex, :url, :remarks, :image_small, :reward, :search)
     end
 end
 

@@ -32,6 +32,7 @@
     <tr>
       <th scope="col"><b>DESCRIPTION</b></th>
       <th scope="col"><b>CRIME TITLE</b></th>
+      <th scope="col"><b>CITY</b></th>
       <th scope="col"><b>DATE REPORTED</th>
     </tr>
   </thead>
@@ -39,6 +40,7 @@
             <tr>
                 <td> <%= tip.tip %></td>
                 <td> <%= link_to tip.crime.title, crime_path(tip.crime)%></td>
+                <td> <%= tip.crime.city.display_name %></td>
                 <td> <%= tip.created_at.strftime('%m-%d-%Y') %></td>
             </tr>
     <% end %>
