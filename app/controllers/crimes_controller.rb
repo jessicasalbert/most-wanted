@@ -16,7 +16,6 @@ class CrimesController < ApplicationController
 
     def create
         @crime = Crime.create(crime_params)
-
         if @crime.valid?
             redirect_to crime_path(@crime)
         else
