@@ -37,6 +37,8 @@ class CrimesController < ApplicationController
     def destroy
         @crime = Crime.find(params[:id])
         @crime.destroy 
+        @crime.anon_tips.destroy_all
+        @crime.updates.destroy_all
         redirect_to city_path(@current_user.city)
     end
 
