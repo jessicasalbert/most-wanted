@@ -12,22 +12,20 @@
     <h3>Your Cases Files:</h3>
 <%end%>
 
-<div class= "card-columns">
-    <%@ordered_crimes.each do |crime| %>
-    <div class="card">
-        <div class="no-img-place-holder">
+<div class="container">
+<% @ordered_crimes.each do |crime| %>
+    <div class="card" style="width: 10rem;">
         <% if crime.image_small%>
-            <%= image_tag crime.image_small, :class => "card-img-top image-max-size" %>
-        <% end%>
-        <% if crime.user_image.attached? %>
-            <img class="card-img-top image-max-size" src=<%=url_for(crime.user_image) %>>
+            <img class="card-img-top" src=<%=crime.image_small%>>
         <% end %>
+        <% if crime.user_image.attached? %>
+            <img class="card-img-top" style="max-width: 200px;"src=<%=url_for(crime.user_image)%>>
+        <% end %>
+        <div class="card-body">
+            <p class="card-text"><%=link_to crime.title, crime_path(crime) %></p>
+            <p class="card-text"></p>
+        </div>
     </div>
 
-    <div class="card-body">
-        <h5 class="card-title text-center"><button type="button" class="btn btn-outline-dark"><%=crime.title%></button></h5> </div>
-        <p class="card-text text-center"></p>
-        <p class="card-text text-center"><small class="text-muted"><button type="button" class="btn btn-warning"><b><%=link_to 'View', crime_path(crime)%> </b></button></small></p>
-    </div>
-    <%end%>
+<%end%>
 </div>

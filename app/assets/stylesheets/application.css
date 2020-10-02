@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- .nav-link {
+.nav-link {
     margin: 8px;
     border-radius: 25%;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -33,7 +33,7 @@ nav {
 }
 
 .image-max-size {
-    width: 150px;
+    width: 250px;
 }
 
 .no-img-place-holder {
@@ -83,7 +83,9 @@ textarea {
     resize: horizontal;
 }
 
-
+.card-img-top {
+    height: 200px;
+}
 
 .cities {
     max-width: 500px;
@@ -92,3 +94,22 @@ textarea {
 .highlight {
     color: #ffcc00;
 }
+
+.card {
+    max-width: 200px;
+    margin:10px;
+    color: black;
+  
+}
+
+
+
+.card-body {
+    float:bottom
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto
+}
+
