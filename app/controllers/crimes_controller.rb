@@ -1,12 +1,12 @@
 class CrimesController < ApplicationController
     skip_before_action :authorized, only: [:index, :show, :edit, :update]
+    before_action :find_crime, only: [:show, :edit, :update, :destroy]
 
     def index
         @crimes = Crime.all.ordered
     end
 
     def show
-        @crime = Crime.find(params[:id])
         @update = Update.new
     end
 
@@ -41,14 +41,14 @@ class CrimesController < ApplicationController
         redirect_to city_path(@current_user.city)
     end
 
-
-
     private 
+
+    def find_crime 
+        @crime = Crime.find(params[:id])
+    end
 
     def crime_params 
         params.require(:crime).permit!
     end
-
-    
 end
 
