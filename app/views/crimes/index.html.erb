@@ -1,5 +1,13 @@
-<h1>All crimes</h1>
+<h1>View All Crimes on Website</h1>
+<hr>
 
+
+<h4> Search by Title</h4>
+<%= form_tag(crimes_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search])%>
+    <%= submit_tag ("Search")%>
+<%end%>
+<hr>
 
 <div class="container">
 <% @crimes.each do |crime| %>

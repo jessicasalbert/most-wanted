@@ -4,6 +4,8 @@ require 'faker'
 Crime.destroy_all
 City.destroy_all
 User.destroy_all
+AnonTip.destroy_all
+Update.destroy_all
 
 def seed_crimes
     page = 1

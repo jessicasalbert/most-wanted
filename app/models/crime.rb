@@ -17,6 +17,20 @@ class Crime < ApplicationRecord
         randoms
     end
 
+    def self.search(search)
+        if search 
+            search = search.upcase
+            crime = Crime.find_by(title: search)
+            if crime 
+                self.where(id: crime.id)
+            else 
+                Crime.all
+            end
+        else
+            Crime.all 
+        end
+    end
+
 
     def self.five_most_wanted
         Crime.all.order(reward: :desc).limit(5)

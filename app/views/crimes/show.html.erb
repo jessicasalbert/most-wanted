@@ -86,7 +86,8 @@
 <% end %>
 
 <br><br><br>
-<h3>Anonymous tips reported</h3>
+<%if logged_in?%>
+<h3>Anonymous Tips Reported</h3>
 <table class="table"> 
     <% @crime.anon_tips.each do |tip| %>
             <tr>
@@ -95,6 +96,7 @@
             </tr>
     <% end %>
 </table>
+<% end %>
   
 
 <div>

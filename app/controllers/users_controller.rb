@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 
     def handle_login
         @user = User.find_by(username: params[:username])
-        #byebug
         if @user && @user.authenticate(params[:password]) && params[:badge_id].to_i == @user.badge_id
             session[:user] = @user.id 
             redirect_to welcome_path

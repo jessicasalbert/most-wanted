@@ -3,7 +3,7 @@ class CrimesController < ApplicationController
     before_action :find_crime, only: [:show, :edit, :update, :destroy]
 
     def index
-        @crimes = Crime.all.ordered
+        @crimes = Crime.all.ordered.search(params[:search])
     end
 
     def show
@@ -49,7 +49,7 @@ class CrimesController < ApplicationController
     end
 
     def crime_params 
-        params.require(:crime).permit!
+        params.require(:crime).permit(:description, :hair_raw, :details, :race_raw, :eyes, :image, :birthday, :city_id, :created_at, :warning_message, :scars_and_marks, :alias, :caution, :sex, :url, :remarks, :image_small, :reward, :search)
     end
 end
 
