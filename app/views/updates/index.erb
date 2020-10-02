@@ -1,12 +1,16 @@
 
 <h1> <%= @current_user.name %>'s Recent Updates for <%=@current_user.city.display_name%></h1>
 
+<br><br>
+<div class="text-center">
 <table class="table">
     <thead class="thead-dark">
         <tr>
+        
         <th scope="col">LEO Crime Updates</th>
         <th scope="col">Crime</th>
         <th scope="col">Date Posted</th>
+        
         </tr>
     </thead>
     <% @current_user.updates.each do |update| %>
@@ -17,23 +21,30 @@
         </tr>
     <% end %>
 </table>
+</div>
+
+<br><br>
 
 <hr>
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-        <th scope="col">Anonymous Tips Received</th>
-        <th scope="col">Crime</th>
-        <th scope="col">Date Posted</th>
-        </tr>
-    </thead>
-    <% @current_user.city.crimes.each do |crime| %>
-        <% crime.anon_tips.each do |tip| %>
+<div class="text-center">
+    <table class="table">
+        <thead class="thead-dark">
             <tr>
-                <td scope="row"><%= tip.tip %></td>
-                <td><%= link_to tip.crime.title, crime_path(tip.crime) %></td>
-                <td><%= tip.created_at.strftime('%m-%d-%Y')%></td>
+            <th scope="col">Anonymous Tips Received</th>
+            <th scope="col">Crime</th>
+            <th scope="col">Date Posted</th>
             </tr>
+        </thead>
+        <% @current_user.city.crimes.each do |crime| %>
+            <% crime.anon_tips.each do |tip| %>
+                <tr>
+                    <td scope="row"><%= tip.tip %></td>
+                    <td><%= link_to tip.crime.title, crime_path(tip.crime) %></td>
+                    <td><%= tip.created_at.strftime('%m-%d-%Y')%></td>
+                </tr>
+            <% end %>
         <% end %>
-    <% end %>
-</table>
+    </table>
+</div>
+
+<br><br><br>

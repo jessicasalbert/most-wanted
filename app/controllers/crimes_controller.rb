@@ -27,9 +27,6 @@ class CrimesController < ApplicationController
 
     def edit 
         @crime = Crime.find(params[:id])
-        # if !logged_in? || @current_user.city != @crime.city  
-        #     redirect_to crime_path(@crime)
-        # end
     end
 
     def update
@@ -39,7 +36,9 @@ class CrimesController < ApplicationController
     end
 
     def destroy
-        # @crime.destroy 
+        @crime = Crime.find(params[:id])
+        @crime.destroy 
+        redirect_to city_path(@current_user.city)
     end
 
 

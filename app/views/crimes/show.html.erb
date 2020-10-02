@@ -82,6 +82,7 @@
 
 <% if logged_in? && @current_user.city == @crime.city %>
     <button type="button" class="btn btn-warning"><%= link_to "Edit crime details", edit_crime_path%></button>
+    <button type="button" class="btn btn-danger"><%= link_to "DELETE CRIME", @crime, method: "delete" %> </button>
 <% end %>
 
 <br><br><br>
@@ -118,16 +119,10 @@
         <%=f.hidden_field :crime_id, :value => @crime.id %>
         <%=f.text_area :tip %>
         <br>
-        <%=f.submit%>   
+        <%=f.submit "Post Tip"%>   
        
 <% end %>
 
-    <%#= form_tag post_update_path do %>
-    <%#= text_area_tag :content%>
-    <%# hidden_field_tag :crime_id, :value => @crime.id%>
-    <%#= hidden_field_tag :user_id, :value => @current_user.id%>
-    <%#= submit_tag "Post" %>
-    <%#end%>
 
 <% end %>
 </div>

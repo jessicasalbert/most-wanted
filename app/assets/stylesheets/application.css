@@ -102,7 +102,12 @@ textarea {
   
 }
 
-
+li#logo {
+    font-size: 39px;
+    float: right;
+    color: #ffcc00;
+    font-family: fantasy
+}
 
 .card-body {
     float:bottom

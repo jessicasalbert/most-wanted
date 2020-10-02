@@ -13,7 +13,9 @@
   <div class="sticky-top background-fill" >
     <nav>
     
+    
     <ul class="nav nav-tabs">
+     <li id="logo"> Flatiron's Most Wanted </li>
       <% if logged_in? %>
         <li class="nav-item">
           <%= link_to "Welcome Page", welcome_path, :class => "nav-link"%>
@@ -43,7 +45,9 @@
         <li class="nav-item">
           <%= link_to "LEO Register", new_user_path, :class => "nav-link" %>
         </li>
+        
       <%end%>
+     
     </ul>
 
     <div >

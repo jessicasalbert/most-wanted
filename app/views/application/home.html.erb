@@ -1,36 +1,42 @@
 
-<h1>DO YOU KNOW ANYTHING ABOUT THESE CRIMES?</h1>
+<h1 class="text-center">DO YOU KNOW ANYTHING ABOUT THESE CRIMES?</h1>
 <hr>
-<div class="text-center">
-<table class='table'>
-<h2> Random Crimes </h2>
-    <% Crime.random_crimes.each do |crime| %>
-        <tr>
-            <td><% if crime.image_small%>
-                <%= image_tag crime.image_small %>
-                <% elsif crime.user_image.attached? %>
-                    <img style="max-width: 100px;"src=<%=url_for(crime.user_image)%>>
-                <% end %></td>
-            <td><%= link_to crime.title, crime_path(crime) %></td>
-            <td>City: <%= crime.city.display_name %></td>
-        </tr>
-    <% end %>
-</table>
+
+<div class="container">
+<% Crime.random_crimes.each do |crime| %>
+    <div class="card" style="width: 10rem;">
+        <% if crime.image_small%>
+            <img class="card-img-top" src=<%=crime.image_small%>>
+        <% end %>
+        <% if crime.user_image.attached? %>
+            <img class="card-img-top" style="max-width: 200px;"src=<%=url_for(crime.user_image)%>>
+        <% end %>
+        <div class="card-body">
+            <p class="card-text"></p><%=link_to crime.title, crime_path(crime) %></p>
+        </div>
+    </div>
+
+<%end%>
 </div>
 
+<br><br>
 <div class="text-center">
 <h2>Five Most Wanted</h2>
-<table>
-    <% Crime.five_most_wanted.each do |crime| %>
-        <tr>
-            <td><% if crime.image_small%>
-                    <%= image_tag crime.image_small %>
-                <% elsif crime.user_image.attached? %>
-                    <img style="max-width: 100px;"src=<%=url_for(crime.user_image)%>>
-                <% end %></td>
-            <td><%= link_to crime.title, crime_path(crime) %></td>
-            <td>Toal Reward: $<%= crime.reward %></td>
-        </tr>
-    <% end %>
-</table>
+
+<div class="container">
+<% Crime.five_most_wanted.each do |crime| %>
+    <div class="card" style="width: 10rem;">
+        <% if crime.image_small%>
+            <img class="card-img-top" src=<%=crime.image_small%>>
+        <% end %>
+        <% if crime.user_image.attached? %>
+            <img class="card-img-top" style="max-width: 200px;"src=<%=url_for(crime.user_image)%>>
+        <% end %>
+        <div class="card-body">
+            <p class="card-text">Reward: $<%=crime.reward%></p>
+            <p class="card-text"><%=link_to crime.title, crime_path(crime) %></p>
+        </div>
+    </div>
+
+<%end%>
 </div>
