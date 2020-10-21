@@ -1,6 +1,6 @@
 # Flatiron's Most Wanted
 
-Crime-stoppers tool enabling both law enforcement and civilians to help solve cases.
+Crime-stoppers tool enabling both law enforcement and civilians to help solve cases. This app was made in collaboration with Ashab Ahmed.
 
 ## Installation
 Clone to local machine, bundle install, run migrations. Use 'rails s' to start local server and use application.
